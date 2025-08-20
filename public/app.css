@@ -1,3 +1,16 @@
+aside .gengar-img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+/* Limita o tamanho da imagem do Gengar */
+article > img[alt="gengar"] {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
 /* Reset rápido */
 * {
     margin: 0;
@@ -50,11 +63,12 @@ article,
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-aside img,
-.aside img {
-    max-width: 120px;
+aside img {
+    max-width: 100px;
+    height: auto;
     display: block;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem auto;
+}
 }
 
 .list {
@@ -64,8 +78,7 @@ aside img,
 }
 
 /* Aside com input */
-aside,
-.aside {
+aside {
     flex: 0 0 250px;
     background: #fff;
     padding: 1rem;
@@ -73,8 +86,10 @@ aside,
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 1rem;
     height: fit-content;
+    min-width: 220px;
 }
 
 input[type="text"] {
@@ -104,7 +119,7 @@ footer,
 }
 
 
-.list-names li {
+ul li {
     gap: 5px;
     background: #fff;
     margin-bottom: 10px;
@@ -117,7 +132,7 @@ footer,
 }
 
 /* Botão excluir */
-.list-names button {
+ul li button {
     padding: 6px 12px;
     background-color: #dc3545;
     color: #fff;
@@ -126,8 +141,8 @@ footer,
     font-size: 0.9rem;
     cursor: pointer;
     transition: background 0.3s;
+    font-weight: bold;
 }
-
-.list-names button:hover {
+ul li button:hover {
     background-color: #a71d2a;
 }

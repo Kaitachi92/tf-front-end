@@ -22,14 +22,43 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const buttonListAddElement = document.getElementsByClassName("btn")[0];
 
+    const listWrapper = document.getElementById("list-wrapper");
+    const inputElement = document.getElementById("list-add");
+
+    // Função para renderizar a lista de tarefas
+    function renderList() {
+        // Limpa o conteúdo anterior
+        listWrapper.innerHTML = "";
+        const ul = document.createElement("ul");
+        toDos.forEach((todo, idx) => {
+            const li = document.createElement("li");
+            li.textContent = todo;
+
+            // Botão deletar
+            const btnDelete = document.createElement("button");
+            btnDelete.textContent = "deletar";
+            btnDelete.style.marginLeft = "8px";
+            btnDelete.addEventListener("click", () => {
+                toDos.splice(idx, 1);
+                renderList();
+            });
+            li.appendChild(btnDelete);
+            ul.appendChild(li);
+        });
+        listWrapper.appendChild(ul);
+    }
+
+    // Renderiza a lista inicial
+    renderList();
+
     buttonListAddElement.addEventListener("click", (event) => {
         event.preventDefault();
-
-        // Adicionar event
-
+        const value = inputElement.value.trim();
+        if (value) {
+            toDos.push(value);
+            inputElement.value = "";
+            renderList();
+        }
     });
-
-    // Codar aqui
-
 
 });
